@@ -54,9 +54,9 @@ jobs:
           target: ${{ matrix.target }}
           arch: x86_64
           profile: pixel_5
-          emulator-options: -gpu host -noaudio -no-boot-anim -camera-back none
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: ./gradlew connectedCheck && python run_case.py
+          script: python run_case.py
 
       - name: Save screenshots
         uses: actions/upload-artifact@v2
