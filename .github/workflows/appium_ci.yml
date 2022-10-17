@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         api-level: [33]
-        target: [default]
+        target: [google_apis]
     steps:
       - uses: actions/checkout@v2 #checkout the code
       - name: Set up JDK 1.8
@@ -30,6 +30,7 @@ jobs:
         with:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}
+          arch: x86_64
           profile: Pixel 6
           script: ./python run_case.py # running our test with info to check the results
 
