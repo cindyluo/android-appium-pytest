@@ -25,6 +25,11 @@ jobs:
           npm install -g appium@v1.22.3
           appium -v
           appium &>/dev/null &
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
       - name: Run Appium Tests
         uses: reactivecircus/android-emulator-runner@v2.26.0
         with:
