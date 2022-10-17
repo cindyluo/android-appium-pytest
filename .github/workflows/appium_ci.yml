@@ -30,7 +30,6 @@ jobs:
         with:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}
-          arch: x86_64
           profile: Pixel 6
           script: ./python run_case.py # running our test with info to check the results
 
