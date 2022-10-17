@@ -54,7 +54,7 @@ jobs:
           target: ${{ matrix.target }}
           arch: x86_64
           profile: pixel_5
-          emulator-options: -no-snapshot -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          emulator-options: -no-snapshot -gpu auto -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           script: python run_case.py
 
