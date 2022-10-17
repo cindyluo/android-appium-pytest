@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# APP Automation Screenshots
+screenshots/
+
+# APP Automation Report
+allure-report/
+allure-results/

@@ -1,0 +1,23 @@
+Emulator_one:
+  platformName: Android
+  automationName: UiAutomator2
+  platformVersion: "13.0"
+  language: en
+  locale: US
+  deviceName: emulator-5554
+  appActivity: com.google.android.apps.chrome.Main
+  appPackage: com.android.chrome
+  noReset: false
+  udid: emulator-5554
+
+Pixel6:
+  platformName: Android
+  automationName: UiAutomator2
+  platformVersion: "13.0"
+  language: en
+  locale: US
+  deviceName: 1A061FDF600EYC
+  appActivity: com.google.android.apps.chrome.Main
+  appPackage: com.android.chrome # adb shell pm list packages
+  noReset: false
+  udid: 1A061FDF600EYC
