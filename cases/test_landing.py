@@ -12,11 +12,16 @@ class TestLanding(object):
         driver = common_driver
         base = Base(driver)
 
+        time.sleep(5)
+        driver.get_screenshot_as_file(f'{SCREENSHOTS_DIR}/TestLanding_test_landing_Step_0.png')
+
         # Welcome to Chrome
         id_terms_accept_btn = (AppiumBy.ID, 'com.android.chrome:id/terms_accept')
         _, terms_accept_btn = base.find_element(id_terms_accept_btn)
         assert terms_accept_btn.text == 'Accept & continue'
-        driver.get_screenshot_as_file(f'{SCREENSHOTS_DIR}/TestLanding_test_landing_Step_1_Welcome.png')
+        driver.get_screenshot_as_file(
+            f'{SCREENSHOTS_DIR}/TestLanding_test_landing_Step_1_Welcome.png'
+        )
         terms_accept_btn.click()
 
         time.sleep(1)
