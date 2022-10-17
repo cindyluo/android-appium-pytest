@@ -38,6 +38,13 @@ jobs:
           python-version: '3.9'
           cache: 'pip'
 
+      - name: Install dependencies
+        run: |
+          brew update
+          brew install allure
+          brew install android-platform-tools
+        working-directory: .github/workflows
+
       - run: pip install -r requirements.txt
 
       - name: Run Appium Tests
@@ -46,9 +53,10 @@ jobs:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}
           arch: x86_64
-          force-avd-creation: false
           profile: pixel_5
-          script: python run_case.py
+          emulator-options: -gpu host -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: ./gradlew connectedCheck && python run_case.py
 
       - name: Save screenshots
         uses: actions/upload-artifact@v2
