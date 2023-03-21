@@ -1,23 +1,29 @@
 import subprocess
-from pathlib import Path
+
+from appium.webdriver.appium_service import AppiumService, AppiumServiceError
 
 from config.root_config import LOG_DIR
 
 
 def appium_start(host, port, log_name):
-    # --bootstrap-port: (Android-only) port to use on device to talk to Appium
-    bootstrap_port = str(port + 1)
-    cmd = 'appium -a ' + host + ' -p ' + str(port) + ' -bp ' + str(bootstrap_port)
-
-    Path(f'{LOG_DIR}/appium_log').mkdir(parents=True, exist_ok=True)
-    subprocess.Popen(
-        cmd,
-        shell=True,
-        stdout=open(f'{LOG_DIR}/appium_log/{log_name}.log', 'w', encoding='utf8'),
-        stderr=subprocess.STDOUT,
-    )
-
-    # pkill -9 -f appium
+    try:
+        service = AppiumService()
+        if not service.is_running:
+            service.start(
+                stdout=open(f'{LOG_DIR}/{log_name}.log', 'w', encoding='utf8'),
+                stderr=subprocess.STDOUT,
+                timeout_ms=3000,
+                args=[
+                    '--address',
+                    host,
+                    '-p',
+                    str(port),
+                    '--base-path',
+                    '/wd/hub',
+                ],
+            )
+    except AppiumServiceError as error:
+        print(error)
 
 
 if __name__ == '__main__':
