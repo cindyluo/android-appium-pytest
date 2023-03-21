@@ -53,10 +53,9 @@ jobs:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}
           arch: x86_64
-          profile: pixel_5
-          disk-size: 2048M
+          profile: Nexus 6
           disable-animations: true
-          script: python run_case.py
+          script: ./gradlew connectedCheck && python run_case.py
 
       - name: Save screenshots
         uses: actions/upload-artifact@v2
