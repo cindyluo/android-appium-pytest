@@ -26,6 +26,8 @@ for device in client.devices():
         'udid': device.serial,
     }
 
+print(DEVICES)
+
 LOG_DIR = Path(ROOT_DIR, 'log')
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
