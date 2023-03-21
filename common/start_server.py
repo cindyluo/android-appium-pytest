@@ -2,7 +2,7 @@ import subprocess
 
 from appium.webdriver.appium_service import AppiumService, AppiumServiceError
 
-from config.root_config import LOG_DIR
+from config import LOG_DIR
 
 
 def appium_start(host, port, log_name):

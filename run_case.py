@@ -5,7 +5,7 @@ import pytest
 
 device_infos = [
     {
-        'title': 'Emulator_one',
+        'device_name': 'Emulator_one',
         'server_host': '127.0.0.1',
         'server_port': '4723',
     }
@@ -13,7 +13,7 @@ device_infos = [
 
 # device_infos = [
 #     {
-#         'title': 'Pixel6',
+#         'device_name': 'Pixel6',
 #         'server_host': '127.0.0.1',
 #         'server_port': '4723',
 #     }

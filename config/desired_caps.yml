@@ -5,8 +5,8 @@ Emulator_one:
   language: en
   locale: US
   deviceName: emulator-5554
-  appActivity: com.google.android.apps.chrome.Main
-  appPackage: com.android.chrome
+  appActivity: com.android.calculator2.Calculator
+  appPackage: com.google.android.calculator
   noReset: false
   udid: emulator-5554
 
@@ -17,7 +17,7 @@ Pixel6:
   language: en
   locale: US
   deviceName: 1A061FDF600EYC
-  appActivity: com.google.android.apps.chrome.Main
-  appPackage: com.android.chrome # adb shell pm list packages
+  appActivity: com.android.calculator2.Calculator
+  appPackage: com.google.android.calculator # adb shell pm list packages
   noReset: false
   udid: 1A061FDF600EYC
