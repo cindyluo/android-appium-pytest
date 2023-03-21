@@ -11,12 +11,12 @@ DEVICES = {}
 ANDROID_APP_ACTIVITY = 'com.android.calculator2.Calculator'
 ANDROID_APP_PACKAGE = 'com.google.android.calculator'
 
-client = AdbClient(host="127.0.0.1", port=5037)
+client = AdbClient(host='127.0.0.1', port=5037)
 for device in client.devices():
     DEVICES[device.serial] = {
         'platformName': 'Android',
         'automationName': 'UiAutomator2',
-        'platformVersion': '13.0',
+        'platformVersion': device.shell('getprop ro.build.version.release').replace('\n', ''),
         'language': 'en',
         'locale': 'US',
         'deviceName': device.serial,
