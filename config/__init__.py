@@ -1,16 +1,30 @@
 from pathlib import Path
 
 import yaml
+from ppadb.client import Client as AdbClient
 
 ROOT_DIR = Path().resolve()
 
 from config.elements import *
 
 DEVICES = {}
-DEFAULT_DEVICES_CONFIG = Path(ROOT_DIR, 'config', 'desired_caps.yml')
-if DEFAULT_DEVICES_CONFIG.exists():
-    with open(DEFAULT_DEVICES_CONFIG, 'r', encoding='UTF-8') as f:
-        DEVICES = yaml.load(f, Loader=yaml.FullLoader)
+ANDROID_APP_ACTIVITY = 'com.android.calculator2.Calculator'
+ANDROID_APP_PACKAGE = 'com.google.android.calculator'
+
+client = AdbClient(host="127.0.0.1", port=5037)
+for device in client.devices():
+    DEVICES[device.serial] = {
+        'platformName': 'Android',
+        'automationName': 'UiAutomator2',
+        'platformVersion': '13.0',
+        'language': 'en',
+        'locale': 'US',
+        'deviceName': device.serial,
+        'appActivity': ANDROID_APP_ACTIVITY,
+        'appPackage': ANDROID_APP_PACKAGE,
+        'noReset': False,
+        'udid': device.serial,
+    }
 
 LOG_DIR = Path(ROOT_DIR, 'log')
 LOG_DIR.mkdir(parents=True, exist_ok=True)

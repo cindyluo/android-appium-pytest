@@ -1,23 +1,18 @@
 import os
 from multiprocessing import Pool
+from config import DEVICES
 
 import pytest
 
-device_infos = [
-    {
-        'device_name': 'Emulator_one',
-        'server_host': '127.0.0.1',
-        'server_port': '4723',
-    }
-]
-
-# device_infos = [
-#     {
-#         'device_name': 'Pixel6',
-#         'server_host': '127.0.0.1',
-#         'server_port': '4723',
-#     }
-# ]
+device_infos = []
+for device_name in DEVICES:
+    device_infos.append(
+        {
+            'device_name': device_name,
+            'server_host': '127.0.0.1',
+            'server_port': '4723',
+        }
+    )
 
 
 def main(device_info):
