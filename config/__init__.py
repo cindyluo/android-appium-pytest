@@ -22,6 +22,7 @@ for device in client.devices():
         'deviceName': device.serial,
         'appActivity': ANDROID_APP_ACTIVITY,
         'appPackage': ANDROID_APP_PACKAGE,
+        'app': str(Path(ROOT_DIR, 'apk', 'calculator.apk')),
         'noReset': True,
         'udid': device.serial,
     }
