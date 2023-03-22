@@ -26,6 +26,7 @@ for device in client.devices():
         'udid': device.serial,
     }
 
+print(device.shell('pm list packages'))
 print(DEVICES)
 
 LOG_DIR = Path(ROOT_DIR, 'log')
