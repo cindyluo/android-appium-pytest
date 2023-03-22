@@ -2,15 +2,13 @@ import pytest
 from appium.webdriver.webdriver import WebDriver
 
 from base.base_page import Base
-from config import SCREENSHOTS_DIR, CalculatorElements
+from config import CalculatorElements
 
 
 class TestCalculator(object):
     def test_android_calculator(self, common_driver: WebDriver):
         driver = common_driver
         base = Base(driver)
-
-        driver.get_screenshot_as_file(f'{SCREENSHOTS_DIR}/calculator_init.png')
 
         for num in range(1, 11):
             if num < 10:
