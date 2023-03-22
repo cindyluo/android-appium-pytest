@@ -1,4 +1,3 @@
-import yaml
 from appium import webdriver
 
 from common.check_port import check_port, release_port

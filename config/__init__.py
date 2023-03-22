@@ -1,6 +1,5 @@
 from pathlib import Path
 
-import yaml
 from ppadb.client import Client as AdbClient
 
 ROOT_DIR = Path().resolve()
