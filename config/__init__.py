@@ -22,7 +22,7 @@ for device in client.devices():
         'deviceName': device.serial,
         'appActivity': ANDROID_APP_ACTIVITY,
         'appPackage': ANDROID_APP_PACKAGE,
-        'noReset': False,
+        'noReset': True,
         'udid': device.serial,
     }
 
